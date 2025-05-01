@@ -6,8 +6,6 @@
 
 학생들 사이의 정보 공유와 소통을 통해 캠퍼스 생활을 더욱 풍요롭게 만드는 것을 목표로 합니다.
 
----
-
 ## 개발 환경
 
 | 항목         | 버전         |
@@ -18,8 +16,6 @@
 | MySQL        | 9.3.0        |
 | Frontend     | HTML, CSS, JavaScript, React |
 
----
-
 ## 팀 소개
 
 | 역할      | 이름     | GitHub URL                     |
@@ -27,8 +23,6 @@
 | 팀장 | 김민경 | [August2821](https://github.com/August2821) |
 | 팀원 | 김건우 | [OPCIO0568](https://github.com/OPCIO0568) |
 | 팀원 | 변소윤 | [byeonsoyun](https://github.com/byeonsoyun) |
-
----
 
 ## 주요 기능
 
