@@ -24,9 +24,9 @@
 
 | 역할      | 이름     | GitHub URL                     |
 |-----------|----------|--------------------------------|
-| 팀장 | 김민경 | [GitHub](https://github.com/August2821) |
-| 팀원 | 김건우 | [GitHub](https://github.com/OPCIO0568) |
-| 팀원 | 변소윤 | [GitHub](https://github.com/byeonsoyun) |
+| 팀장 | 김민경 | [August2821](https://github.com/August2821) |
+| 팀원 | 김건우 | [OPCIO0568](https://github.com/OPCIO0568) |
+| 팀원 | 변소윤 | [byeonsoyun](https://github.com/byeonsoyun) |
 
 ---
 
