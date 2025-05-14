@@ -11,6 +11,10 @@
 **Backend**: Java 17, Spring Boot 3.4.5, Maven 3.9.9, MySQL 9.3.0  
 **Frontend**: HTML, CSS, JavaScript, React
 
+## 노션 링크
+
+[프로젝트 노션 페이지](https://dent-crayon-137.notion.site/Sweet-Spot-1ce00ace873d80a18e0de71315674efa)
+
 
 ## 팀 소개
 
