@@ -31,6 +31,11 @@ public class UserEntity {
     @Column(nullable = false)
     private boolean isPhoneVerified = false; // 전화번호 인증 여부
 
+    @Column(name = "profile_image_url")
+    private String profileImageUrl;
+
+    private String profile_image_name;
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now(); // 가입일
 
@@ -58,6 +63,12 @@ public class UserEntity {
     public boolean isPhoneVerified() { return isPhoneVerified; } 
     public void setPhoneVerified(boolean isPhoneVerified) { this.isPhoneVerified = isPhoneVerified; }
     
+    public String getProfileImageUrl() { return profileImageUrl; }
+    public void setProfileImageUrl(String profileImageUrl) { this.profileImageUrl = profileImageUrl; }
+
+    public String getProfileImageName() { return profile_image_name; }
+    public void setProfileImageName(String profile_image_name) { this.profile_image_name = profile_image_name; }
+
     public LocalDateTime getCreatedAt() { return createdAt; } 
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }
