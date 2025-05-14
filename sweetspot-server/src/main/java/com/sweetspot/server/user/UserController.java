@@ -7,14 +7,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sweetspot.server.user.DTO.UserImageUpdateDTO;
 import com.sweetspot.server.user.DTO.UserLoginRequestDTO;
 import com.sweetspot.server.user.DTO.UserLoginResponseDTO;
-import com.sweetspot.server.user.DTO.UserNicknameUpdateDTO;
 import com.sweetspot.server.user.DTO.UserRegisterDTO;
 import com.sweetspot.server.user.DTO.UserRegisterPhoneNumberCheckRequestDTO;
-import com.sweetspot.server.user.DTO.check.UserPasswordCheck;
+import com.sweetspot.server.user.DTO.check.UserPasswordCheckRequestDTO;
+import com.sweetspot.server.user.DTO.check.UserPasswordCheckResponseDTO;
 import com.sweetspot.server.user.DTO.check.UserRegisterEmailCheckRequestDTO;
+import com.sweetspot.server.user.DTO.update.UserImageUpdateDTO;
+import com.sweetspot.server.user.DTO.update.UserNicknameUpdateDTO;
+import com.sweetspot.server.user.DTO.update.UserPasswordUpdateRequestDTO;
+import com.sweetspot.server.user.DTO.update.UserPasswordUpdateResponseDTO;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -229,21 +232,37 @@ public class UserController {
         }
     }
 
+    //비밀번호 확인
     @PostMapping("/check/password")
-    public ResponseEntity<Map<String, Object>> checkPassword(@RequestBody UserPasswordCheck dto) {
-        Map<String, Object> response = new HashMap<>();
+    public ResponseEntity<UserPasswordCheckResponseDTO> checkPassword(@RequestBody UserPasswordCheckRequestDTO request) {
+        try {
+            boolean isMatch = userService.checkPassword(request.getUserId(), request.getPassword());
+
+            if (isMatch) {
+                return ResponseEntity.ok(new UserPasswordCheckResponseDTO(true, "비밀번호가 일치합니다."));
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new UserPasswordCheckResponseDTO(false, "비밀번호가 일치하지 않습니다."));
+            }
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new UserPasswordCheckResponseDTO(false, e.getMessage()));
+        }
+    }
+
+    @PostMapping("/update/password")
+    public ResponseEntity<UserPasswordUpdateResponseDTO> updatePassword(
+            @RequestBody UserPasswordUpdateRequestDTO request) {
 
         try {
-            boolean isValid = userService.checkPassword(dto.getUserId(), dto.getPassword());
-
-            response.put("valid", isValid);
-            response.put("message", isValid ? "비밀번호가 일치합니다." : "비밀번호가 일치하지 않습니다.");
-            return ResponseEntity.ok(response);
-
+            userService.updatePassword(request.getUserId(), request.getNewPassword());
+            return ResponseEntity.ok(new UserPasswordUpdateResponseDTO(true, "비밀번호가 성공적으로 변경되었습니다."));
         } catch (IllegalArgumentException e) {
-            response.put("valid", false);
-            response.put("message", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new UserPasswordUpdateResponseDTO(false, e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new UserPasswordUpdateResponseDTO(false, "비밀번호 변경 중 오류가 발생했습니다."));
         }
     }
 

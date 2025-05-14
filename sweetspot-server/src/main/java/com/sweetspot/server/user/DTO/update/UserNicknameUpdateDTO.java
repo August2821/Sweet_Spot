@@ -1,4 +1,4 @@
-package com.sweetspot.server.user.DTO;
+package com.sweetspot.server.user.DTO.update;
 
 public class UserNicknameUpdateDTO {
     private Long userId;

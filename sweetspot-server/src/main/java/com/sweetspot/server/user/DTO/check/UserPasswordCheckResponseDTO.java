@@ -9,11 +9,6 @@ public class UserPasswordCheckResponseDTO {
         this.message = message;
     }
 
-    public boolean isMatch() {
-        return match;
-    }
-
-    public String getMessage() {
-        return message;
-    }
+    public boolean isMatch() { return match; }
+    public String getMessage() { return message; }
 }

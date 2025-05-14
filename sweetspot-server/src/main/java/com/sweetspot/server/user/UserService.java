@@ -123,6 +123,15 @@ public class UserService {
         return passwordEncoder.matches(rawPassword, user.getPassword());
     }
 
+    @Transactional
+    public void updatePassword(Long userId, String newPassword) {
+        UserEntity user = userRepository.findById(userId)
+            .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
+
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        user.setPassword(encodedPassword);
+        userRepository.save(user);
+    }
 
     // 사용자 정보 업데이트
     // @Transactional
