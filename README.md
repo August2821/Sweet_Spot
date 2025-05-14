@@ -18,11 +18,16 @@
 
 ## 팀 소개
 
+### Backend
 - **팀장**: 김민경 [August2821](https://github.com/August2821)
 
+### Frontend
 - **팀원**: 김건우 [OPCIO0568](https://github.com/OPCIO0568)
 
 - **팀원**: 변소윤 [byeonsoyun](https://github.com/byeonsoyun)
+
+### Design
+- **팀원**: 김건우 [OPCIO0568](https://github.com/OPCIO0568)
 
 ## 주요 기능
 
