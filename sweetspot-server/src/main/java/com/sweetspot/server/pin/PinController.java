@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
@@ -19,6 +20,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.sweetspot.server.category.CategoryEntity;
 import com.sweetspot.server.category.CategoryRepository;
+import com.sweetspot.server.pin.DTO.PinDTO;
+import com.sweetspot.server.pin.DTO.PinDeleteDTO;
+import com.sweetspot.server.pin.DTO.PinResponseDTO;
 import com.sweetspot.server.pin.image.PinImageDTO;
 import com.sweetspot.server.pin.image.PinImageService;
 
@@ -112,5 +116,16 @@ public class PinController {
             error.put("error", "핀을 찾을 수 없거나 사용자 ID가 일치하지 않습니다.");
             return ResponseEntity.badRequest().body(error);
         }
+    }
+
+    @PostMapping("/list")
+    public ResponseEntity<?> getPinsByCategory(@RequestBody Map<String, Long> request) {
+        Long categoryId = request.get("categoryId");
+        if (categoryId == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "categoryId가 필요합니다."));
+        }
+
+        List<PinResponseDTO> pins = pinService.getPinsByCategoryId(categoryId);
+        return ResponseEntity.ok(pins);
     }
 }   

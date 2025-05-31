@@ -12,7 +12,10 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("file:uploads/profile-images/"); // 실제 파일 경로
         
         registry.addResourceHandler("/images/pin-images/**")
-                .addResourceLocations("file:uploads/pin-images/");   
+                .addResourceLocations("file:uploads/pin-images/");
+        
+        registry.addResourceHandler("/images/post-images/**")
+                .addResourceLocations("file:uploads/post-images/");    
     }
 }
 

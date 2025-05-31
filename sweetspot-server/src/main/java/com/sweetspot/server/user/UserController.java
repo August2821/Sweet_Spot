@@ -1,15 +1,16 @@
 package com.sweetspot.server.user;
 
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.sweetspot.server.user.DTO.UserInfoResponseDTO;
 import com.sweetspot.server.user.DTO.UserLoginRequestDTO;
 import com.sweetspot.server.user.DTO.UserLoginResponseDTO;
 import com.sweetspot.server.user.DTO.UserRegisterDTO;
+import com.sweetspot.server.user.DTO.UserIdRequestDTO;
 import com.sweetspot.server.user.DTO.UserRegisterPhoneNumberCheckRequestDTO;
 import com.sweetspot.server.user.DTO.check.UserPasswordCheckRequestDTO;
 import com.sweetspot.server.user.DTO.check.UserPasswordCheckResponseDTO;
@@ -213,7 +214,7 @@ public class UserController {
         }
     }
 
-    //사용자 닉네임 변경/업데이트
+    //사용자 닉네임 변경, 업데이트
     @PutMapping("/update/nickname")
     public ResponseEntity<?> updateNickname(@RequestBody UserNicknameUpdateDTO dto) {
         try {
@@ -250,6 +251,7 @@ public class UserController {
         }
     }
 
+    //비밀번호 업데이트
     @PostMapping("/update/password")
     public ResponseEntity<UserPasswordUpdateResponseDTO> updatePassword(
             @RequestBody UserPasswordUpdateRequestDTO request) {
@@ -266,38 +268,16 @@ public class UserController {
         }
     }
 
-    /*
-    // 이메일로 사용자 조회 API
-    @GetMapping("/email/{email}")
-    public ResponseEntity<UserEntity> getUserByEmail(@PathVariable String email) {
-        UserEntity userEntity = userService.getUserByEmail(email);
-        if (userEntity != null) {
-            return new ResponseEntity<>(userEntity, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }
-    }
-
-    // 전화번호로 사용자 조회 API
-    @GetMapping("/phone/{phoneNumber}")
-    public ResponseEntity<UserEntity> getUserByPhoneNumber(@PathVariable String phoneNumber) {
-        UserEntity userEntity = userService.getUserByPhoneNumber(phoneNumber);
-        if (userEntity != null) {
-            return new ResponseEntity<>(userEntity, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }
-    }
-
-    // 사용자 정보 업데이트 API
-    @PutMapping("/{userId}")
-    public ResponseEntity<UserEntity> updateUser(@PathVariable Long userId, @RequestBody UserDTO userDTO) {
+    //사용자 정보 조회
+    @PostMapping("/info")
+    public ResponseEntity<?> getUserInfo(@RequestBody UserIdRequestDTO request) {
         try {
-            UserEntity updatedUser = userService.updateUser(userId, userDTO);
-            return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+            UserInfoResponseDTO userInfo = userService.getUserInfoWithPosts(request.getUserId());
+            return ResponseEntity.ok(userInfo);
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("사용자를 찾을 수 없습니다.", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>("서버 오류 발생", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-     */
 }

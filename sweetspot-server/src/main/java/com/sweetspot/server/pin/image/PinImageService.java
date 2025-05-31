@@ -32,4 +32,8 @@ public class PinImageService {
         dto.setImageId(saved.getImageId());
         return dto;
     }
+
+    public Optional<PinImageEntity> findFirstImageByPinId(Long pinId) {
+        return pinImageRepository.findFirstByPinIdOrderByUploadedAtAsc(pinId);
+    }
 }

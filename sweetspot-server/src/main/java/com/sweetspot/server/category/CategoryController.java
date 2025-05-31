@@ -1,10 +1,19 @@
 package com.sweetspot.server.category;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sweetspot.server.category.DTO.CategoryDTO;
+import com.sweetspot.server.category.DTO.CategoryDeleteDTO;
+import com.sweetspot.server.category.DTO.CategoryDeleteErrorResponseDTO;
+import com.sweetspot.server.category.DTO.CategoryDeleteMessageResponseDTO;
+import com.sweetspot.server.category.DTO.CategoryResponseDTO;
+import com.sweetspot.server.category.DTO.CategoryUserRequestDTO;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -31,5 +40,11 @@ public class CategoryController {
         } else {
             return ResponseEntity.badRequest().body(new CategoryDeleteErrorResponseDTO("Category not found."));
         }
+    }
+
+    @PostMapping("/list")
+    public ResponseEntity<List<CategoryResponseDTO>> getCategoriesByUser(@RequestBody CategoryUserRequestDTO request) {
+        List<CategoryResponseDTO> categories = categoryService.getCategoriesByUserId(request.getUserId());
+        return ResponseEntity.ok(categories);
     }
 }

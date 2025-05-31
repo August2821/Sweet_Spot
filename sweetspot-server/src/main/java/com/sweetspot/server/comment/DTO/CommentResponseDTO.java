@@ -1,4 +1,4 @@
-package com.sweetspot.server.comment;
+package com.sweetspot.server.comment.DTO;
 
 import java.time.LocalDateTime;
 

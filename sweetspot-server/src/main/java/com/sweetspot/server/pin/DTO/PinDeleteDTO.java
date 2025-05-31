@@ -1,4 +1,4 @@
-package com.sweetspot.server.pin;
+package com.sweetspot.server.pin.DTO;
 
 public class PinDeleteDTO {
     private Long pinId;

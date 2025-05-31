@@ -1,4 +1,4 @@
-package com.sweetspot.server.category;
+package com.sweetspot.server.category.DTO;
 
 public class CategoryDeleteMessageResponseDTO {
     private String message;

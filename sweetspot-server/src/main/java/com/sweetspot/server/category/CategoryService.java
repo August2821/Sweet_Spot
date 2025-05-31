@@ -1,6 +1,12 @@
 package com.sweetspot.server.category;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
+
+import com.sweetspot.server.category.DTO.CategoryDTO;
+import com.sweetspot.server.category.DTO.CategoryResponseDTO;
 
 @Service
 public class CategoryService {
@@ -32,5 +38,15 @@ public class CategoryService {
                 return true;
             })
             .orElse(false);
+    }
+
+    public List<CategoryResponseDTO> getCategoriesByUserId(Long userId) {
+        return categoryRepository.findByUserId(userId).stream()
+            .map(cat -> new CategoryResponseDTO(
+                cat.getCategoryId(),
+                cat.getName(),
+                cat.getCreatedAt()
+            ))
+            .collect(Collectors.toList());
     }
 }

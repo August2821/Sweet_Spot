@@ -4,29 +4,51 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sweetspot.server.comment.CommentEntity;
+import com.sweetspot.server.comment.CommentRepository;
+import com.sweetspot.server.comment.like.CommentLikeEntity;
+import com.sweetspot.server.comment.like.CommentLikeRepository;
+import com.sweetspot.server.post.MapPostEntity;
+import com.sweetspot.server.post.MapPostRepository;
+import com.sweetspot.server.post.like.PostLikeEntity;
+import com.sweetspot.server.post.like.PostLikeRepository;
+import com.sweetspot.server.user.DTO.UserCommentDTO;
+import com.sweetspot.server.user.DTO.UserInfoResponseDTO;
+import com.sweetspot.server.user.DTO.UserLikedCommentDTO;
+import com.sweetspot.server.user.DTO.UserLikedPostDTO;
+import com.sweetspot.server.user.DTO.UserPostSummaryDTO;
 import com.sweetspot.server.user.DTO.UserRegisterDTO;
 
 
 @Service
 public class UserService {
-
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final MapPostRepository mapPostRepository;
+    private final CommentRepository commentRepository;
+    private final PostLikeRepository postLikeRepository;
+    private final CommentLikeRepository commentLikeRepository;
 
     @Value("${server.base-url:http://localhost:8080}")
     private String baseUrl;
 
-    //@Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, 
+        MapPostRepository mapPostRepository, CommentRepository commentRepository,
+        PostLikeRepository postLikeRepository, CommentLikeRepository commentLikeRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.mapPostRepository = mapPostRepository;
+        this.commentRepository = commentRepository;
+        this.postLikeRepository = postLikeRepository;
+        this.commentLikeRepository = commentLikeRepository;
     }
 
     // 사용자 등록
@@ -56,11 +78,6 @@ public class UserService {
     // 이메일로 사용자 찾기
     public UserEntity getUserByEmail(String email) {
         return userRepository.findByEmail(email);
-    }
-
-    // 전화번호로 사용자 찾기
-    public UserEntity getUserByPhoneNumber(String phoneNumber) {
-        return userRepository.findByPhoneNumber(phoneNumber);
     }
 
     //이메일 중복 확인
@@ -116,6 +133,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    //비밀번호 확인
     public boolean checkPassword(Long userId, String rawPassword) {
         UserEntity user = userRepository.findById(userId)
             .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
@@ -123,6 +141,7 @@ public class UserService {
         return passwordEncoder.matches(rawPassword, user.getPassword());
     }
 
+    //비밀번호 업데이트
     @Transactional
     public void updatePassword(Long userId, String newPassword) {
         UserEntity user = userRepository.findById(userId)
@@ -133,19 +152,91 @@ public class UserService {
         userRepository.save(user);
     }
 
-    // 사용자 정보 업데이트
-    // @Transactional
-    // public UserEntity updateUser(Long userId, UserRegisterDTO userDTO) {
-    //     UserEntity userEntity = userRepository.findById(userId)
-    //             .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
-        
-    //     userEntity.setEmail(userDTO.getEmail());
-    //     userEntity.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-    //     userEntity.setNickname(userDTO.getNickname());
-    //     userEntity.setPhoneNumber(userDTO.getPhoneNumber());
-    //     userEntity.setPhoneVerified(userDTO.isPhoneVerified());
-    //     userEntity.setCreatedAt(userDTO.getCreatedAt());
+    //사용자 정보 조회
+    public UserInfoResponseDTO getUserInfoWithPosts(Long userId) {
+        UserEntity user = userRepository.findById(userId)
+            .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 
-    //     return userRepository.save(userEntity);
-    // }
+        //작성한 게시글
+        List<MapPostEntity> posts = mapPostRepository.findByUserId(userId);
+        List<UserPostSummaryDTO> postDTOs = posts.stream()
+            .map(post -> new UserPostSummaryDTO(
+                post.getPostId(),
+                post.getTitle(),
+                post.getUpdatedAt(),
+                post.getLikes()))
+            .toList();
+        
+        //작성한 댓글
+        List<UserCommentDTO> comments = commentRepository.findByUserId(userId).stream()
+        .map(comment -> new UserCommentDTO(
+            comment.getCommentId(), 
+            comment.getPostId(),
+            comment.getContent(), 
+            comment.getUpdatedAt(), 
+            comment.getLikes()))
+        .collect(Collectors.toList());
+
+        // 좋아요 누른 게시글 목록
+        List<PostLikeEntity> likedEntities = postLikeRepository.findByUserId(userId);
+
+        List<UserLikedPostDTO> likedPostDTOs = likedEntities.stream()
+            .map(like -> {
+                MapPostEntity post = mapPostRepository.findById(like.getPostId())
+                        .orElse(null);
+                if (post == null) return null;
+
+                UserEntity author = userRepository.findById(post.getUserId())
+                        .orElse(null);
+                if (author == null) return null;
+
+                return new UserLikedPostDTO(
+                        post.getPostId(),
+                        post.getTitle(),
+                        post.getUpdatedAt(),
+                        post.getLikes(),
+                        author.getUserId(),
+                        author.getNickname()
+                );
+            })
+            .filter(dto -> dto != null)
+            .collect(Collectors.toList());
+
+        //좋아요 누른 댓글 목록
+        List<CommentLikeEntity> likedCommentEntities = commentLikeRepository.findByUserId(userId);
+
+        List<UserLikedCommentDTO> likedCommentDTOs = likedCommentEntities.stream()
+            .map(like -> {
+                CommentEntity comment = commentRepository.findById(like.getCommentId()).orElse(null);
+                if (comment == null) return null;
+
+                UserEntity author = userRepository.findById(comment.getUserId()).orElse(null);
+                if (author == null) return null;
+
+                return new UserLikedCommentDTO(
+                    comment.getCommentId(),
+                    comment.getPostId(),
+                    comment.getContent(),
+                    comment.getUpdatedAt(),
+                    comment.getLikes(),
+                    author.getUserId(),
+                    author.getNickname()
+                );
+            })
+            .filter(dto -> dto != null)
+            .collect(Collectors.toList());
+
+        return new UserInfoResponseDTO(
+            user.getEmail(),
+            user.getPhoneNumber(),
+            user.getNickname(),
+            user.isPhoneVerified(),
+            user.getProfileImageUrl(),
+            user.getCreatedAt(),
+            postDTOs,
+            comments,
+            likedPostDTOs,
+            likedCommentDTOs
+        );
+    }
 }
