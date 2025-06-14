@@ -49,7 +49,7 @@ public class PinService {
         return false;
     }
 
-    //핀 리스트 조회
+    //카테고리id로 핀 리스트 조회
     public List<PinResponseDTO> getPinsByCategoryId(Long categoryId) {
         List<PinEntity> pins = pinRepository.findByCategoryId(categoryId);
         return pins.stream().map(pin -> {
@@ -70,5 +70,28 @@ public class PinService {
 
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    //핀id로 핀 정보 조회
+    public Optional<PinResponseDTO> getPinById(Long pinId) {
+        Optional<PinEntity> pinOpt = pinRepository.findById(pinId);
+        if (pinOpt.isEmpty()) return Optional.empty();
+
+        PinEntity pin = pinOpt.get();
+        PinResponseDTO dto = new PinResponseDTO();
+        dto.setPinId(pin.getPinId());
+        dto.setTitle(pin.getTitle());
+        dto.setDescription(pin.getDescription());
+        dto.setLatitude(pin.getLatitude());
+        dto.setLongitude(pin.getLongitude());
+        dto.setCreatedAt(pin.getCreatedAt());
+
+        // 이미지 정보 추가
+        pinImageService.findFirstImageByPinId(pin.getPinId()).ifPresent(image -> {
+            PinImageInfoDTO imageDTO = new PinImageInfoDTO(image.getImageId(), image.getImageUrl());
+            dto.setImageInfo(imageDTO);
+        });
+
+        return Optional.of(dto);
     }
 }

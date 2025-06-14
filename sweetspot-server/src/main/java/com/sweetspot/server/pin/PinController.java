@@ -118,6 +118,7 @@ public class PinController {
         }
     }
 
+    //카테고리 id로 핀 리스트/정보 조회
     @PostMapping("/list")
     public ResponseEntity<?> getPinsByCategory(@RequestBody Map<String, Long> request) {
         Long categoryId = request.get("categoryId");
@@ -127,5 +128,21 @@ public class PinController {
 
         List<PinResponseDTO> pins = pinService.getPinsByCategoryId(categoryId);
         return ResponseEntity.ok(pins);
+    }
+
+    //핀id로 핀 정보 조회
+    @PostMapping("/info")
+    public ResponseEntity<?> getPinById(@RequestBody Map<String, Long> request) {
+        Long pinId = request.get("pinId");
+        if (pinId == null) {
+            return ResponseEntity.badRequest().body(Map.of("error", "pinId가 필요합니다."));
+        }
+
+        Optional<PinResponseDTO> pinOpt = pinService.getPinById(pinId);
+        if (pinOpt.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "해당 핀을 찾을 수 없습니다."));
+        }
+
+        return ResponseEntity.ok(pinOpt.get());
     }
 }   
