@@ -235,6 +235,7 @@ public class MapPostService {
         MapPostDetailResponseDTO dto = new MapPostDetailResponseDTO();
         dto.setPostId(post.getPostId());
         dto.setUserId(post.getUserId());
+        dto.setPinId(post.getPinId());
         dto.setNickname(nickname);
         dto.setTitle(post.getTitle());
         dto.setContent(post.getContent());

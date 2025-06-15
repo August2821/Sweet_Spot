@@ -9,6 +9,7 @@ import com.sweetspot.server.post.image.PostImageDetailDTO;
 public class MapPostDetailResponseDTO {
     private Long postId;
     private Long userId;
+    private Long pinId;
     private String nickname;
     private String title;
     private String content;
@@ -23,6 +24,9 @@ public class MapPostDetailResponseDTO {
 
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }
+
+    public Long getPinId() { return pinId; }
+    public void setPinId(Long pinId) { this.pinId = pinId; }
 
     public String getNickname() { return nickname; }
     public void setNickname(String nickname) { this.nickname = nickname; }
