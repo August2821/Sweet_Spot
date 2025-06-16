@@ -11,7 +11,7 @@
 #### 🖥️ Backend
 - ![Java](https://img.icons8.com/color/24/000000/java-coffee-cup-logo.png) **Java 17**
 - ![Spring](https://img.icons8.com/color/24/000000/spring-logo.png) **Spring Boot 3.4.5**
-- ![Maven](https://img.icons8.com/color/24/000000/apache-maven.png) **Maven 3.9.9**
+- **Maven 3.9.9**
 - ![MySQL](https://img.icons8.com/fluency/24/000000/mysql-logo.png) **MySQL 9.3.0**
 
 #### 🎨 Frontend
