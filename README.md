@@ -60,7 +60,7 @@
 >npm start
 
 -**디자인 초안**
->###![Figma](https://img.icons8.com/color/24/000000/figma--v1.png) [피그마](https://www.figma.com/design/FHWSZ9uX0QwXLaA9T12O8L/Untitled?node-id=0-1&p=f&t=PzYnY1BYjHmxrFAo-0)
+>![Figma](https://img.icons8.com/color/24/000000/figma--v1.png) ### [피그마](https://www.figma.com/design/FHWSZ9uX0QwXLaA9T12O8L/Untitled?node-id=0-1&p=f&t=PzYnY1BYjHmxrFAo-0)
 >![image](https://github.com/user-attachments/assets/e77c4c0e-4fde-4b64-9ccf-978562d044ca)
 
 ---
