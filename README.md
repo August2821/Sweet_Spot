@@ -55,9 +55,6 @@
 - **나만의 꿀장소**
 >![image](https://github.com/user-attachments/assets/6cc74ddb-083d-4019-9966-d80634186af0)
 
--**실행 방법**
->npm install<br>
->npm start
 
 -**디자인 초안**
 >![Figma](https://img.icons8.com/color/24/000000/figma--v1.png) [피그마](https://www.figma.com/design/FHWSZ9uX0QwXLaA9T12O8L/Untitled?node-id=0-1&p=f&t=PzYnY1BYjHmxrFAo-0)
@@ -65,6 +62,9 @@
 
 ---
 
+-**실행 방법**
+>npm install<br>
+>npm start
 
 ## 주요 기능
 
