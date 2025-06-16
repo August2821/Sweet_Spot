@@ -32,7 +32,7 @@
 - **기술 스택** : React 18, React Router, Kakao Maps SDK, Bootstrap 5, HTML/CSS
 
 - **UI**
--
+
 - **메인**
 ![image](https://github.com/user-attachments/assets/0ca921c2-e396-443f-96f1-5e76c0d59096)
 
@@ -46,12 +46,10 @@
 >npm install<br>
 >npm start
 
+-**디자인 시안**
+>[피그마](https://www.figma.com/design/FHWSZ9uX0QwXLaA9T12O8L/Untitled?node-id=0-1&p=f&t=PzYnY1BYjHmxrFAo-0)
 
 
-
-
-
- 
 
 ## 주요 기능
 
@@ -59,3 +57,10 @@
 - 게시판에 장소 정보 작성 및 사진 업로드  
 - 댓글 및 커뮤니티 기능  
 - 로그인 및 회원가입
+
+## 향후 추가 기능
+
+- 관리자 기능
+- 커뮤니티 디자인 개선
+- 마이페이지 기능 추가
+- 
