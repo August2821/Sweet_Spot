@@ -41,7 +41,7 @@
 
 - **기술 스택** : React 18, React Router, Kakao Maps SDK, Bootstrap 5, HTML/CSS
 
-#### 결과
+## 결과
 ---
 
 - **UI**
