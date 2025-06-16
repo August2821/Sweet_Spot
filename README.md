@@ -43,7 +43,6 @@
 
 ## 결과
 
-
 - **메인**
 >![image](https://github.com/user-attachments/assets/0ca921c2-e396-443f-96f1-5e76c0d59096)
 
