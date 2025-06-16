@@ -43,7 +43,7 @@
 ![image](https://github.com/user-attachments/assets/6cc74ddb-083d-4019-9966-d80634186af0)
 
 -**실행 방법**
->npm install
+>npm install<br>
 >npm start
 
 
