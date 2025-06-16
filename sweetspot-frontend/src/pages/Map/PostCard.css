@@ -1,0 +1,52 @@
+.postcard {
+  display: flex;
+  background-color: #00ddff; /* 연한 하늘색 */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  align-items: flex-start; /* 이미지와 텍스트 위쪽 정렬 */
+}
+
+.postcard-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 16px;
+  border: 1px solid white;
+}
+
+.postcard-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 텍스트를 위쪽에 정렬 */
+}
+
+.postcard-header h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: white; 
+}
+
+.postcard-content p {
+  margin-top: 6px;
+  font-size: 15px;
+  color: white; 
+}
+
+.postcard-footer {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 14px;
+  color: white;
+}
+
+.postcard-detail {
+  text-decoration: underline;
+  cursor: pointer;
+  color: white;
+}
+

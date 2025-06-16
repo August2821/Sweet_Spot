@@ -1,0 +1,77 @@
+/* LoginPage.css */
+
+.login-container {
+  background-color: #e8e8e8;
+  border-radius: 50px;
+}
+
+
+.login-form {
+  width: 300px;
+  margin: 0px auto;
+  padding: 2rem;
+  border: 1px solid #e2e0e0;
+  border-radius: 10px;
+  background-color: #dcdcdc;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+  border: 1px solid #000000;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00ddff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.login-form button:hover {
+  background-color: #01b4cf;
+}
+
+.login-form p {
+  text-align: center;
+  color: red;
+  margin-top: 1rem;
+}
+
+.login-form {
+  width: 80%;
+  max-width: 350px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 이미지 전체를 다 보여줌 (잘리지 않음) */
+  background-color: #000; /* 빈 공간 생길 경우 배경색 지정 */
+}
+
+.swiper-container,
+.swiper,
+.swiper-wrapper,
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+}

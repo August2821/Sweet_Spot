@@ -1,0 +1,83 @@
+.mapcommunity-wrapper {
+  width: 100%;
+  min-height: 80vh;
+}
+
+.mapcommunity-container {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  gap: 20px;
+  padding: 20px;
+}
+
+.mapcommunity-left {
+  flex: 1;
+  max-width: 50%;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.mapcommunity-right {
+  flex: 1;
+  max-width: 50%;
+  background: #f8fdff;
+  border-radius: 12px;
+  border: 2px solid #00bbdd;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mapcommunity-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #00bbdd;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.mapcommunity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.post-detail-fixed {
+  height: 100%;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.no-post-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+  font-size: 18px;
+  flex: 1;
+}
+
+/* 스크롤바 스타일링 */
+.mapcommunity-left::-webkit-scrollbar,
+.post-detail-fixed::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mapcommunity-left::-webkit-scrollbar-track,
+.post-detail-fixed::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.mapcommunity-left::-webkit-scrollbar-thumb,
+.post-detail-fixed::-webkit-scrollbar-thumb {
+  background: #00bbdd;
+  border-radius: 3px;
+}
+
+.mapcommunity-left::-webkit-scrollbar-thumb:hover,
+.post-detail-fixed::-webkit-scrollbar-thumb:hover {
+  background: #0099aa;
+}

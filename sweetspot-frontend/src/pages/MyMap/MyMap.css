@@ -1,0 +1,117 @@
+.container-box {
+    display: flex;
+    gap: 1px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 80vh;
+}
+
+.post-box {
+    width: 30%; 
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.post-list-scroll {
+  height: 100%;
+}
+
+.map-box {
+    width: 70%; 
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    height: 100%;
+}
+
+/* 핀 상세 정보 모달 스타일 */
+.pin-detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.pin-detail-modal {
+    background: white;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pin-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.pin-detail-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.pin-detail-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pin-detail-close:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.pin-detail-content {
+    padding: 20px;
+}
+
+.pin-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.pin-image {
+    margin: 15px 0;
+}
+
+.pin-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.pin-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.pin-info strong {
+    color: #333;
+}

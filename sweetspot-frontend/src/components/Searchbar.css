@@ -1,0 +1,161 @@
+.searchbar-container {
+  display: flex;
+  justify-content: space-between; /* 좌우 정렬 */
+  align-items: center;
+  background-color: #00ddff;
+  padding: 10px 20px;
+  padding-left: 3%; /* 왼쪽 여백 조절 */
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-input {
+  padding: 10px 40px 10px 15px;
+  border-radius: 8px;
+  border: 1px solid white;
+  font-size: 20px;
+  outline: none;
+  width: 400px;
+  height: 50px; 
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.category-button {
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: white;
+  width: 170px;
+  height: 50px;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #00ddff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  text-transform: none;
+}
+
+.action-btn-group {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  border: 2px solid #00ddff;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #00ddff;
+  font-size: 25px;         /* 카테고리 버튼과 동일 */
+  font-weight: 700;        /* 카테고리 버튼과 동일 */
+  width: 150px;            /* 카테고리 버튼과 동일 */
+  height: 50px;            /* 카테고리 버튼과 동일 */
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.action-btn:hover {
+  background-color: #00ddff;
+  color: #fff;
+}
+
+.searchbar-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 170px;
+  width: 170px;
+  background: #f8fdff;
+  border: 2px solid #00ddff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,221,255,0.10), 0 1.5px 6px rgba(0,0,0,0.06);
+  z-index: 20;
+  padding: 6px 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+.dropdown-item {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #00bbdd;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 14px 0;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid #e6fafa;
+  outline: none;
+  letter-spacing: 0.5px;
+  transition: background 0.25s cubic-bezier(.4,0,.2,1), color 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: linear-gradient(90deg, #00ddff 0%, #00bbdd 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,221,255,0.08);
+}
+
+.popular-button {
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: white;
+  width: 170px;
+  height: 50px;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #00ddff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  text-transform: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.popular-button:hover {
+  background-color: #00ddff;
+  color: #fff;
+}

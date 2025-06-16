@@ -1,0 +1,41 @@
+/*로고부분*/
+.navbar-brand {
+    font-size: 35px !important;
+    font-family: "Jersey 25", sans-serif;
+    color: #00ddff !important;
+    font-weight: 400;
+    margin-right: 100px !important;
+}
+
+/*MyMap, MapCommunity부분*/
+.custom-link {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    transition: color 0.5s ease;
+    margin-right: 50px ;
+}
+
+.custom-link:hover {
+    color: #00ddff !important;
+}
+
+/*로그인, 회원가입부분*/
+.btn {
+    font-weight: bold !important;
+    font-size: 1rem;
+    margin-left: 10px;
+    border-radius: 8px;
+    transition: color 0.4s ease !important;
+}
+
+.btn-custom{
+    background-color: #00ddff !important;
+    color: white !important;
+    border: none !important;
+}
+
+.btn-custom:hover {
+    background-color: #00b1cc !important;
+    color: white !important;
+    border: none !important;
+}

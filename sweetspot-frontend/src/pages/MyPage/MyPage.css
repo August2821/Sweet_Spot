@@ -1,0 +1,224 @@
+.mypage-header {
+  background-color: #00ddff;
+  padding: 30px;
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/* 공통 카드 스타일 */
+.section-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  
+}
+
+
+.mypage-container {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+/* 왼쪽 그룹: 프로필 + 내 정보 */
+.left-group {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 400px;
+  margin-left: 20px;
+}
+
+.profile-group{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.profile-section{
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* 프로필 이미지 */
+.profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #bbbbbb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.profile-image:hover {
+  border-color: #00ddff;
+  cursor: pointer;
+  transition: border-color 0.5s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transform: scale(1.05);
+}
+
+.profile-icon {
+  font-size: 200px;
+  color: #b0b0b0;
+  display: block;
+  margin: 0 auto;
+}
+
+.info-group {
+  width: 400px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.info-group h3 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 8px;
+}
+
+.info-field {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background-color: #f9fbff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+
+.info-field:hover {
+  background-color: #8ae0ff;
+}
+
+.info-field label {
+  font-weight: 600;
+  color: #000000;
+  font-size: 1rem;
+  min-width: 90px;
+}
+
+.info-field span {
+  font-size: 15px;
+  color: #000000;
+  word-break: break-all;
+}
+
+
+.toggle-profile-controls-btn {
+  margin-top: 0.5rem;
+  padding:5px 10px;
+  background-color: #00ddff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-profile-controls-btn:hover {
+  background-color: #00bbff;
+}
+
+.profile-buttons{
+  margin-top: 10px;
+}
+
+.upload-image-input {
+  cursor: pointer;
+}
+
+
+
+.upload-image-input {
+  margin-top: 6px;
+}
+
+
+/* 전체 컨테이너로 감싸기 */
+.activity-group-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 900px;
+  margin: 0 auto;
+}
+
+/* 기존 activity-group 스타일 유지 또는 수정 */
+.activity-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+.section-card {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.section-card h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.section-card ul {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.section-card.open ul {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+
+.section-card li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.section-card li span:first-child:hover {
+  text-decoration: underline;
+}
+
+.activity-chart-container {
+  background: #fff;
+  padding: 24px;
+  margin-top: 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

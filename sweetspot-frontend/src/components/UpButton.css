@@ -1,0 +1,24 @@
+.up-button {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #00ddff, #00bbdd);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.up-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}

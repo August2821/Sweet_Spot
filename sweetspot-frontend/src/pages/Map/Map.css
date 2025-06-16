@@ -1,0 +1,28 @@
+.container-box {
+    display: flex;
+    gap: 1px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 80vh;
+}
+
+.post-box {
+    width: 30%; 
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.post-list-scroll {
+  height: 100%;
+}
+
+.map-box {
+    width: 70%; 
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    height: 100%;
+}

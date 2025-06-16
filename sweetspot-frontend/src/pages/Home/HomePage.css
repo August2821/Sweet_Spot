@@ -1,0 +1,158 @@
+.homepage-container {
+  background-color: #f8f9fa;
+  padding-top: 10px;
+}
+
+.homepage-box {
+    max-height: 550px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin-bottom: 40px;
+}
+
+/* 왼쪽 박스 */
+.left-box {
+  background-color: #00eeff;
+  margin:0 auto;
+}
+
+/* 오른쪽 박스 */
+.right-box {
+  position: relative;
+  height: 100%;
+  padding: 2rem;
+}
+
+.slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+  display: block;
+}
+
+
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.5); /* 반투명 흰색 */
+  width: 8px;       /* 여기 크기 줄임 */
+  height: 8px;      /* 여기 크기 줄임 */
+  margin: 0 4px !important;  /* 점 사이 여백도 조금 줄임 */
+  margin: 0 6px !important;
+  opacity: 1;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+/* 활성화된 점 스타일 */
+.swiper-pagination-bullet-active {
+  background-color: #00eeff; /* 순수한 흰색 */
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  transform: scale(1.3);
+}
+
+/* 제목 구역 스타일 */
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 하단 파란 박스 */
+.hotspot-row {
+  margin-top: 40px;
+  margin-bottom: 150px;
+  width: 100%;
+  
+}
+
+.hotspot-box {
+  background-color: #00eeff;
+  padding: 20px;
+  border-radius: 10px;
+  height: 500px;
+    
+  gap: 20px;               
+  box-sizing: border-box;    
+  overflow: hidden;
+
+  max-width: 1200px;
+  margin-left: 20px;
+}
+
+/* 내부 박스 */
+.hotspot-map-box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 7;
+}
+
+.hotspot-posts-box {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 20px;
+  flex: 5;
+}
+
+.hotspot-post-list {
+  padding: 0.5rem;
+  max-height: 100%;
+  overflow-y: auto;
+}
+.post-card:hover {
+  background-color: #f4fbff;
+}
+
+
+
+.centered-box {
+  margin: 0 auto;     /* 가로 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center;     /* 가로 중앙 정렬 */
+  text-align: center;      /* 텍스트도 가운데 정렬 */
+  border-radius: 8px;      /* 모서리 둥글게 */
+
+}
+
+
+
+/* 회색 박스 래퍼 */
+.gray-box-wrapper {
+  margin-bottom: 200px;
+  padding: 0 15px;
+}
+
+.gray-box {
+  background-color: #dddddd;
+  border-radius: 8px;
+  height: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  font-size: 15px;
+}
+
+
+.blue-box-wrapper {
+  max-width: 900px;
+  margin: 0 auto 100px auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+
+
+/* 하늘색 박스 */
+.blue-box {
+  background-color: #ccf2ff;
+  border-radius: 8px;
+  height: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
