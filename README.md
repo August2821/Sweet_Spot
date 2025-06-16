@@ -34,18 +34,17 @@
 - **UI**
 -
 - **메인**
-- ![image](https://github.com/user-attachments/assets/0ca921c2-e396-443f-96f1-5e76c0d59096)
-- ![image](https://github.com/user-attachments/assets/a3440960-8236-49a3-b246-27aa560867d5)
+![image](https://github.com/user-attachments/assets/0ca921c2-e396-443f-96f1-5e76c0d59096) ![image](https://github.com/user-attachments/assets/a3440960-8236-49a3-b246-27aa560867d5)
 
 - **마이페이지**
-- ![image](https://github.com/user-attachments/assets/cb79efb4-ccbb-491a-8cd1-815e65a48bf8)
+![image](https://github.com/user-attachments/assets/cb79efb4-ccbb-491a-8cd1-815e65a48bf8)
 
 
 - **나만의 꿀장소**
--![image](https://github.com/user-attachments/assets/6cc74ddb-083d-4019-9966-d80634186af0)
+![image](https://github.com/user-attachments/assets/6cc74ddb-083d-4019-9966-d80634186af0)
 
 -**꿀게시판**
--![image](https://github.com/user-attachments/assets/edb80e07-5a8f-4759-b442-0dbba5436630)
+![image](https://github.com/user-attachments/assets/edb80e07-5a8f-4759-b442-0dbba5436630)
 
 
 
