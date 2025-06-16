@@ -44,13 +44,13 @@
 - **UI**
 
 - **메인**
-![image](https://github.com/user-attachments/assets/0ca921c2-e396-443f-96f1-5e76c0d59096)
+>![image](https://github.com/user-attachments/assets/0ca921c2-e396-443f-96f1-5e76c0d59096)
 
 - **마이페이지**
-![image](https://github.com/user-attachments/assets/cb79efb4-ccbb-491a-8cd1-815e65a48bf8)
+>![image](https://github.com/user-attachments/assets/cb79efb4-ccbb-491a-8cd1-815e65a48bf8)
 
 - **나만의 꿀장소**
-![image](https://github.com/user-attachments/assets/6cc74ddb-083d-4019-9966-d80634186af0)
+>![image](https://github.com/user-attachments/assets/6cc74ddb-083d-4019-9966-d80634186af0)
 
 -**실행 방법**
 >npm install<br>
